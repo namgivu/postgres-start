@@ -10,12 +10,13 @@ quoted error when version not matched
 > pg_dump: aborting because of server version mismatch
 
 *sample usage*
-                              00.prepare-infra.sh
-DOCKER_IMAGE=postgres:latest  00.prepare-infra.sh
+                              ./00.prepare-infra.sh
+DOCKER_IMAGE=postgres:latest  ./00.prepare-infra.sh
+DOCKER_IMAGE=postgres:11.5    ./00.prepare-infra.sh
 '
 
-CONTAINER_NAME='pgdump_c200904'  # pgdump_c200904 aka pg_dump container made on 2020-09-04
 if [ -z $DOCKER_IMAGE ]; then DOCKER_IMAGE='postgres:latest'; fi  # pg version will pass in as docker image tag here
+suffix=`echo $DOCKER_IMAGE | sed 's/:/_/g'`; CONTAINER_NAME="pgdump_c200904_$suffix"  # pgdump_c200904_xx aka pg_dump container made on 2020-09-04
 
     docker stop -t1 $CONTAINER_NAME ; docker rm -f $CONTAINER_NAME
 
