@@ -35,3 +35,7 @@ suffix=`echo $DOCKER_IMAGE | sed 's/:/_/g'`; CONTAINER_NAME="pgdump_c200904_$suf
         psql (PostgreSQL) 12.2 (Debian 12.2-2.pgdg100+1)
         PostgreSQL 12.2 (Debian 12.2-2.pgdg100+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 8.3.0-6) 8.3.0, 64-bit
         '
+
+# re-print container name as output to use later on
+echo; echo 'Output container'
+docker ps --format '{{.Names}}' | grep $CONTAINER_NAME
