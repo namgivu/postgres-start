@@ -36,3 +36,8 @@ if [ -z $gz   ]; then echo 'Envvar :gz is required'; exit 1; fi
 
         echo "Aftermath table view"
         docker exec $container_name  psql postgresql://postgres:postgres@/$DB_NAME -c '\dt'
+
+        echo
+
+        echo "Command hint"
+        echo docker exec $container_name  psql postgresql://postgres:postgres@/$DB_NAME -c '\dt'
