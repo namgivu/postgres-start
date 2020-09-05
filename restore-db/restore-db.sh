@@ -10,7 +10,7 @@ gz=./backup-db/gz_vault/mydb.20200904_153223.gz  ./restore-db/restore-db.sh
          SH=`cd $(dirname $BASH_SOURCE) && pwd`
 BACKUP_HOME=`cd "$SH/../backup-db"      && pwd`
 
-if [ -z $gz   ]; then echo 'Envvar :gz is required'; exit 1; fi
+if [ -z $gz ]; then echo 'Envvar :gz is required'; exit 1; fi
     if [ ! -f $gz ]; then echo "File not found :gz as $gz"; exit 1; fi
         sql="$gz.sql" ; gunzip -k < $gz > $sql
 
