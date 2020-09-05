@@ -28,7 +28,7 @@ if [ -z $gz ]; then echo 'Envvar :gz is required'; exit 1; fi
 
         echo "Restoring... "
             docker exec    $container_name  psql -Upostgres  -c "create database \"$DB_NAME\" "
-            docker exec -i $container_name  psql -Upostgres  $DB_NAME < $sql
+            docker exec -i $container_name  psql -Upostgres  $DB_NAME < $sql  #NOTE must have -i exec
             #           .  .                .                .          .
         echo "Restoring... DONE"
 
